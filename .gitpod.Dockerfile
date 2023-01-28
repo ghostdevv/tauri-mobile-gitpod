@@ -13,12 +13,11 @@ RUN sudo apt install -y \
     libayatana-appindicator3-dev \
     librsvg2-dev
 
+RUN sudo apt install openjdk-11-jre openjdk-11-jdk -y
+
 RUN sudo apt install -y --no-install-recommends \
         android-sdk \
         lib32stdc++6 \
         android-studio \
         android-sdk-build-tools \
-        android-sdk \
-        android-sdk-platform-33
-
-RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+        android-sdk

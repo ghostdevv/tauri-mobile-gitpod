@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full-vnc
 
-RUN sudo add-apt-repository ppa:maarten-fonville/android-studio && 
+RUN sudo add-apt-repository ppa:maarten-fonville/android-studio 
 RUN sudo apt update
 
 RUN sudo apt install -y \

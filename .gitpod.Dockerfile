@@ -15,9 +15,19 @@ RUN sudo apt install -y \
 
 RUN sudo apt install openjdk-11-jre openjdk-11-jdk -y
 
-RUN sudo apt install -y --no-install-recommends \
-        android-sdk \
-        lib32stdc++6 \
-        android-studio \
-        android-sdk-build-tools \
-        android-sdk
+# RUN sudo apt install -y --no-install-recommends \
+#         android-sdk \
+#         lib32stdc++6 \
+#         android-studio \
+#         android-sdk-build-tools \
+#         android-sdk
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV ANDROID_HOME="$HOME/.android"
+ENV NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
+
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip && \
+    unzip cmdline-tools.zip && \
+    mkdir ~/.android/cmdline-tools/latest -p && \
+    mv cmdline-tools/* ~/.android/cmdline-tools/latest && \
+    rm cmdline-tools && \
